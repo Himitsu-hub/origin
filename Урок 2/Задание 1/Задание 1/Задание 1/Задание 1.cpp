@@ -48,6 +48,7 @@ public:
     }
 };
 
+
 int main() {
     setlocale(0, "rus");
     Calculator calc;
