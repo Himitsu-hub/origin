@@ -18,18 +18,18 @@ enum Month {
 
 string getMonth(int monthNumber) {
     switch (monthNumber) {
-    case January:   return "Январь";
-    case February:  return "Февраль";
-    case March:     return "Март";
-    case April:     return "Апрель";
-    case May:       return "Май";
-    case June:      return "Июнь";
-    case July:      return "Июль";
-    case August:    return "Август";
-    case September: return "Сентябрь";
-    case October:  return "Октябрь";
-    case November:  return "Ноябрь";
-    case December:  return "Декабрь";
+    case static_cast<int>(January):   return "Январь";
+    case static_cast<int>(February):  return "Февраль";
+    case static_cast<int>(March):     return "Март";
+    case static_cast<int>(April):     return "Апрель";
+    case static_cast<int>(May):       return "Май";
+    case static_cast<int>(June):      return "Июнь";
+    case static_cast<int>(July):      return "Июль";
+    case static_cast<int>(August):    return "Август";
+    case static_cast<int>(September): return "Сентябрь";
+    case static_cast<int>(October):   return "Октябрь";
+    case static_cast<int>(November):  return "Ноябрь";
+    case static_cast<int>(December):  return "Декабрь";
     default:        return "";
     }
 }
