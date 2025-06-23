@@ -5,7 +5,7 @@ using namespace std;
 
 class Counter {
 private:
-    int value;  
+    int value;
 
 public:
     Counter() : value(1) {}
