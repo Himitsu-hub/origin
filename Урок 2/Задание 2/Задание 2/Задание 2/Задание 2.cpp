@@ -8,62 +8,58 @@ private:
     int value;
 
 public:
-    Counter() : value(1) {}
+    Counter() : value(1) {}  
+    Counter(int initial_value) : value(initial_value) {}  
 
-    Counter(int initial_value) : value(initial_value) {}
-
-    void increment() {
-        value++;
-    }
-
-    void decrement() {
-        value--;
-    }
-
-    int get_current() {
-        return value;
-    }
+    void increment() { value++; }
+    void decrement() { value--; }
+    int get_current() const { return value; }  
 };
 
 int main() {
-    setlocale(0, "rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+    setlocale(0, "rus");
+
+    Counter* counter = nullptr;  
     string answer;
-    int initial_value = 1;
-    char command;
+    int count;
 
     cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
     cin >> answer;
 
     if (answer == "да") {
         cout << "Введите начальное значение счётчика: ";
-        cin >> initial_value;
+        cin >> count;
+        counter = new Counter(count); 
+    }
+    else {
+        counter = new Counter();  
     }
 
-    Counter counter(initial_value);
-
-    while (true) {
+    char command;
+    do {
         cout << "Введите команду ('+', '-', '=' или 'x'): ";
         cin >> command;
 
         switch (command) {
         case '+':
-            counter.increment();
+            counter->increment();
             break;
         case '-':
-            counter.decrement();
+            counter->decrement();
             break;
         case '=':
-            cout << counter.get_current() << endl;
+            cout << counter->get_current() << endl;
             break;
         case 'x':
             cout << "До свидания!" << endl;
-            return 0;
+            break;
         default:
             cout << "Неизвестная команда!" << endl;
         }
-    }
+    } while (command != 'x');
 
+    delete counter;  
     return 0;
 }
