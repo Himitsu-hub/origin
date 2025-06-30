@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+
 class Figure {
 protected:
     int sides_count;
