@@ -95,6 +95,7 @@ public:
     }
 };
 
+
 class Rectangle : public Quadrangle {
 public:
     Rectangle(int a, int b)
