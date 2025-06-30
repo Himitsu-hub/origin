@@ -43,6 +43,5 @@ int main() {
     cout << figure.get_name() << ": " << figure.get_sides_count() << endl;
     cout << triangle.get_name() << ": " << triangle.get_sides_count() << endl;
     cout << quadrangle.get_name() << ": " << quadrangle.get_sides_count() << endl;
-
     return 0;
 }
