@@ -18,6 +18,7 @@ public:
         return sides_count;
     }
 
+
     string get_name() const {
         return name;
     }
