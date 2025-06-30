@@ -11,7 +11,6 @@ protected:
         : sides_count(count), name(fig_name) {
     }
 
-
 public:
     Figure() : Figure(0, "Фигура") {}
 
