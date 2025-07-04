@@ -1,0 +1,12 @@
+﻿#ifndef ISOSCELES_TRIANGLE_H
+#define ISOSCELES_TRIANGLE_H
+
+#include "triangle.h"
+using namespace std;
+
+class IsoscelesTriangle : public Triangle {
+public:
+    IsoscelesTriangle(int a, int b, int A, int B);
+};
+
+#endif
