@@ -2,7 +2,6 @@
 #define ISOSCELES_TRIANGLE_H
 
 #include "triangle.h"
-using namespace std;
 
 class IsoscelesTriangle : public Triangle {
 public:
