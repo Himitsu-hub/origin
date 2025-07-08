@@ -2,7 +2,6 @@
 #define RHOMBUS_H
 
 #include "parallelogram.h"
-using namespace std;
 
 class Rhombus : public Parallelogram {
 public:

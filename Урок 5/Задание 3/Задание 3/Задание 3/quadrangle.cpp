@@ -1,6 +1,5 @@
 ﻿#include "quadrangle.h"
 #include <iostream>
-using namespace std;
 
 Quadrangle::Quadrangle(int a, int b, int c, int d, int A, int B, int C, int D, const string& name)
     : Figure(name), a(a), b(b), c(c), d(d), A(A), B(B), C(C), D(D) {

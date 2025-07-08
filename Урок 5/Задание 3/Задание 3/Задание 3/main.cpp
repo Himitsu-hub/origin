@@ -9,7 +9,6 @@
 #include "square.h"
 #include "parallelogram.h"
 #include "rhombus.h"
-using namespace std;
 
 int main() {
     setlocale(0, "rus");

@@ -2,7 +2,6 @@
 #define RECTANGLE_H
 
 #include "quadrangle.h"
-using namespace std;
 
 class Rectangle : public Quadrangle {
 public:

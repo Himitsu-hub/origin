@@ -2,7 +2,6 @@
 #define QUADRANGLE_H
 
 #include "figure.h"
-using namespace std;
 
 class Quadrangle : public Figure {
 protected:
