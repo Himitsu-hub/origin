@@ -2,7 +2,6 @@
 #include <cmath>
 #include <stdexcept>
 #include <iostream>
-using namespace std;
 
 double add(double a, double b) {
     return a + b;
@@ -18,7 +17,7 @@ double multiply(double a, double b) {
 
 double divide(double a, double b) {
     if (b == 0) {
-        cout<< "Делить на ноль нельзя!";
+        std:: cout<< "Делить на ноль нельзя!";
     }
     return a / b;
 }
