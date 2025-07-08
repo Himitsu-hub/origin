@@ -95,6 +95,7 @@ int main() {
         std::cout << "Ошибка создания прямоугольного треугольника. Причина: " << e.what() << "\n";
     }
 
+
     try {
         figures.push_back(new Square(40)); 
     }
