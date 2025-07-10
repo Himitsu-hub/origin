@@ -24,6 +24,7 @@
     <ProjectGuid>{d882ca02-e343-4011-baa1-bbf1f50f7b11}</ProjectGuid>
     <RootNamespace>MathPowerClient</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Greeter</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
