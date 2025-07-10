@@ -1,44 +1,52 @@
 ﻿#include <iostream>
+#include <stdexcept>
 
-class Fraction
-{
+class Fraction {
 private:
     int numerator_;
     int denominator_;
 
+
 public:
-    Fraction(int numerator, int denominator)
-    {
-        numerator_ = numerator;
-        denominator_ = denominator;
+    Fraction(int numerator = 0, int denominator = 1)
+        : numerator_(numerator), denominator_(denominator) {
+        if (denominator_ == 0) {
+            throw std::invalid_argument("Знаменатель не может быть нулём");
+        }
+    
     }
 
-    int compare(const Fraction& other) const {
-        long long num1 = static_cast<long long>(numerator_) * other.denominator_;
-        long long num2 = static_cast<long long>(other.numerator_) * denominator_;
-        if (num1 < num2) return -1;
-        if (num1 > num2) return 1;
-        return 0;
+    bool operator==(const Fraction& other) const {
+        return numerator_ * other.denominator_ == other.numerator_ * denominator_;
     }
 
-    bool operator==(const Fraction& other) const { return compare(other) == 0; }
-    bool operator!=(const Fraction& other) const { return compare(other) != 0; }
-    bool operator<(const Fraction& other) const { return compare(other) < 0; }
-    bool operator>(const Fraction& other) const { return compare(other) > 0; }
-    bool operator<=(const Fraction& other) const { return compare(other) <= 0; }
-    bool operator>=(const Fraction& other) const { return compare(other) >= 0; }
+    bool operator<(const Fraction& other) const {
+        return numerator_ * other.denominator_ < other.numerator_ * denominator_;
+    }
+
+    bool operator!=(const Fraction& other) const { return !(*this == other); }
+    bool operator>(const Fraction& other) const { return other < *this; }
+    bool operator<=(const Fraction& other) const { return !(other < *this); }
+    bool operator>=(const Fraction& other) const { return !(*this < other); }
+
+   
 };
 
-int main()
-{
-    Fraction f1(4, 3);
-    Fraction f2(6, 11);
+int main() {
+    try {
+        Fraction f1(4, 3);
+        Fraction f2(6, 11);
 
-    std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
-    std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
-    std::cout << "f1" << ((f1 < f2) ? " < " : " not < ") << "f2" << '\n';
-    std::cout << "f1" << ((f1 > f2) ? " > " : " not > ") << "f2" << '\n';
-    std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';
-    std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
+        std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
+        std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
+        std::cout << "f1" << ((f1 < f2) ? " < " : " not < ") << "f2" << '\n';
+        std::cout << "f1" << ((f1 > f2) ? " > " : " not > ") << "f2" << '\n';
+        std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';
+        std::cout << "f1" << ((f1 >= f2) ? " >= " : " not >= ") << "f2" << '\n';
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << '\n';
+    }
+
     return 0;
 }
