@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MathPowerClient.cpp">
+    <ClCompile Include="GreeterClient.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

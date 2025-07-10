@@ -7,6 +7,7 @@ int main() {
     setlocale(0, "rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+
     Greeter greeter;
     std::string name;
 
