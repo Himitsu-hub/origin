@@ -10,7 +10,6 @@ namespace ExtendedArrayTests
     {
     public:
 
-
         TEST_METHOD(TestMeanFullArray)
         {
             ExtArray<int> arr{ 1, 2, 3, 4, 5 };
