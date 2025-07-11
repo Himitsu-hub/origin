@@ -2,7 +2,6 @@
 project(my_second_cmake_project)
 add_executable(my_second_cmake_program 
 main.cpp 
-main.h 
 equilateral_triangle.cpp 
 equilateral_triangle.h 
 figure.cpp figure.h 
