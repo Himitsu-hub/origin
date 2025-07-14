@@ -27,9 +27,9 @@ void ConsoleInterface::showMainMenu() {
 
 void ConsoleInterface::setupRace() {
     std::cout << "\nВыберите тип гонки:" << std::endl;
-    std::cout << "1. Наземная" << std::endl;
-    std::cout << "2. Воздушная" << std::endl;
-    std::cout << "3. Смешанная" << std::endl;
+    std::cout << "1. Гонка для наземного транспорта" << std::endl;
+    std::cout << "2. Гонка для воздушного транспорта" << std::endl;
+    std::cout << "3. Гонка для наземного и воздушного транспорта" << std::endl;
 
     int typeChoice;
     std::cin >> typeChoice;
@@ -42,7 +42,7 @@ void ConsoleInterface::setupRace() {
     default: return;
     }
 
-    std::cout << "Введите дистанцию: ";
+    std::cout << "Укажите длину дистанции (должна быть положительна): ";
     double distance;
     std::cin >> distance;
 
@@ -79,7 +79,7 @@ void ConsoleInterface::registerVehicles() {
         else if (choice == 2) {
             if (currentRace->getRegisteredCount() >= 2) {
                 runRace();
-                break;
+                return;  
             }
             else {
                 std::cout << "Для гонки нужно как минимум 2 транспортных средства" << std::endl;
@@ -94,6 +94,24 @@ void ConsoleInterface::registerVehicles() {
 void ConsoleInterface::runRace() {
     auto results = currentRace->runRace();
     showResults(results);
+
+    while (true) {
+        std::cout << "\n1. Провести ещё одну гонку" << std::endl;
+        std::cout << "2. Выйти" << std::endl;
+
+        int choice;
+        std::cin >> choice;
+
+        if (choice == 1) {
+            return;  
+        }
+        else if (choice == 2) {
+            exit(0);
+        }
+        else {
+            std::cout << "Неверный выбор, попробуйте снова" << std::endl;
+        }
+    }
 }
 
 void ConsoleInterface::showResults(const std::vector<std::pair<std::string, double>>& results) {
