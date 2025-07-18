@@ -4,6 +4,6 @@
 class RACECORE_API Centaur : public GroundVehicle {
 public:
     Centaur();
-    virtual ~Centaur() override;
+    ~Centaur() override;
     double getRestTime(int restCount) const override;
 };

@@ -54,39 +54,49 @@ void ConsoleInterface::registerVehicles() {
     VehicleFactory factory;
 
     while (true) {
-        std::cout << "\nЗарегистрировано транспортных средств: "
-            << currentRace->getRegisteredCount() << std::endl;
-        std::cout << "1. Зарегистрировать транспорт" << std::endl;
-        std::cout << "2. Начать гонку" << std::endl;
-        std::cout << "3. Отмена" << std::endl;
+        std::cout << "\n" << RaceTypeToString(currentRace->getType())
+            << ". Дистанция: " << currentRace->getDistance() << std::endl;
+
+        auto registeredVehicles = currentRace->getRegisteredVehicles();
+        if (!registeredVehicles.empty()) {
+            std::cout << "Зарегистрированные транспортные средства: ";
+            for (size_t i = 0; i < registeredVehicles.size(); ++i) {
+                if (i > 0) std::cout << ", ";
+                std::cout << registeredVehicles[i]->getName();
+            }
+            std::cout << std::endl;
+        }
+
+        factory.showAvailableVehicles(currentRace->getType());
+
+        std::cout << "0. Закончить регистрацию" << std::endl;
+        std::cout << "Выберите транспорт или 0 для окончания процесса регистрации: ";
 
         int choice;
         std::cin >> choice;
 
-        if (choice == 1) {
-            factory.showAvailableVehicles(currentRace->getType());
-            int vehicleChoice;
-            std::cin >> vehicleChoice;
+        if (choice == 0) {
+            if (currentRace->getRegisteredCount() >= 2) {
+                runRace();
+                return;
+            }
+            else {
+                std::cout << "Для гонки нужно как минимум 2 транспортных средства!" << std::endl;
+                continue;
+            }
+        }
 
-            auto vehicle = factory.createVehicle(vehicleChoice);
-            if (vehicle && currentRace->registerVehicle(vehicle)) {
+        auto vehicle = factory.createVehicle(choice);
+        if (vehicle) {
+            if (currentRace->registerVehicle(vehicle)) {
                 std::cout << vehicle->getName() << " успешно зарегистрирован!" << std::endl;
             }
             else {
-                std::cout << "Не удалось зарегистрировать транспорт" << std::endl;
+                std::cout << "Этот транспорт уже зарегистрирован или не подходит для данной гонки!" << std::endl;
             }
         }
-        else if (choice == 2) {
-            if (currentRace->getRegisteredCount() >= 2) {
-                runRace();
-                return;  
-            }
-            else {
-                std::cout << "Для гонки нужно как минимум 2 транспортных средства" << std::endl;
-            }
-        }
-        else if (choice == 3) {
-            break;
+        else {
+            std::cout << "Неверный выбор транспорта!" << std::endl;
         }
     }
 }
@@ -103,7 +113,7 @@ void ConsoleInterface::runRace() {
         std::cin >> choice;
 
         if (choice == 1) {
-            return;  
+            return;
         }
         else if (choice == 2) {
             exit(0);

@@ -4,6 +4,6 @@
 class RACECORE_API Boots : public GroundVehicle {
 public:
     Boots();
-    virtual ~Boots() override;
+    ~Boots() override;
     double getRestTime(int restCount) const override;
 };

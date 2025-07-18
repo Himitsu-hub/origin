@@ -4,6 +4,6 @@
 class RACECORE_API Broom : public AirVehicle {
 public:
     Broom();
-    virtual ~Broom() override;
+    ~Broom() override;
     double getDistanceReduction(double distance) const override;
 };

@@ -7,24 +7,22 @@
 class VehicleFactory {
 public:
     void showAvailableVehicles(RaceType raceType) const {
-        std::cout << "\nДоступные транспортные средства:\n";
+        std::cout << "\nДоступные транспортные средства:" << std::endl;
 
         if (raceType == RaceType::GROUND || raceType == RaceType::MIXED) {
-            std::cout << "Наземные:\n";
-            std::cout << "1. Верблюд\n";
-            std::cout << "2. Верблюд-быстроход\n";
-            std::cout << "3. Кентавр\n";
-            std::cout << "4. Ботинки-вездеходы\n";
+            std::cout << "Наземные:" << std::endl;
+            std::cout << "1. Верблюд" << std::endl;
+            std::cout << "2. Верблюд-быстроход" << std::endl;
+            std::cout << "3. Кентавр" << std::endl;
+            std::cout << "4. Ботинки-вездеходы" << std::endl;
         }
 
         if (raceType == RaceType::AIR || raceType == RaceType::MIXED) {
-            std::cout << "Воздушные:\n";
-            std::cout << "5. Ковёр-самолёт\n";
-            std::cout << "6. Орёл\n";
-            std::cout << "7. Метла\n";
+            std::cout << "Воздушные:" << std::endl;
+            std::cout << "5. Ковёр-самолёт" << std::endl;
+            std::cout << "6. Орёл" << std::endl;
+            std::cout << "7. Метла" << std::endl;
         }
-
-        std::cout << "Выберите транспорт: ";
     }
 
     std::shared_ptr<Vehicle> createVehicle(int choice) const {

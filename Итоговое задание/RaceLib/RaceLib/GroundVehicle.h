@@ -8,6 +8,6 @@ protected:
 
 public:
     GroundVehicle(const std::string& name, double speed, double drivingTime);
-    virtual ~GroundVehicle() override;
+    ~GroundVehicle() override;
     double calculateTime(double distance) const override;
 };

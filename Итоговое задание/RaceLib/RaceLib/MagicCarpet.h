@@ -4,6 +4,6 @@
 class RACECORE_API MagicCarpet : public AirVehicle {
 public:
     MagicCarpet();
-    virtual ~MagicCarpet() override;
+    ~MagicCarpet() override;
     double getDistanceReduction(double distance) const override;
 };

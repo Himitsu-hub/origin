@@ -4,6 +4,6 @@
 class RACECORE_API Eagle : public AirVehicle {
 public:
     Eagle();
-    virtual ~Eagle() override;
+    ~Eagle() override;
     double getDistanceReduction(double distance) const override;
 };

@@ -4,6 +4,7 @@
 Race::Race(RaceType type, double distance) : type(type), distance(distance) {}
 Race::~Race() = default;
 
+
 bool Race::registerVehicle(std::shared_ptr<Vehicle> vehicle) {
     if ((type == RaceType::GROUND && vehicle->getType() != VehicleType::GROUND) ||
         (type == RaceType::AIR && vehicle->getType() != VehicleType::AIR)) {
@@ -20,6 +21,7 @@ bool Race::registerVehicle(std::shared_ptr<Vehicle> vehicle) {
     return true;
 }
 
+
 std::vector<std::pair<std::string, double>> Race::runRace() const {
     std::vector<std::pair<std::string, double>> results;
 
@@ -32,6 +34,10 @@ std::vector<std::pair<std::string, double>> Race::runRace() const {
         [](const auto& a, const auto& b) { return a.second < b.second; });
 
     return results;
+}
+
+std::vector<std::shared_ptr<Vehicle>> Race::getRegisteredVehicles() const {
+    return vehicles;
 }
 
 RaceType Race::getType() const { return type; }

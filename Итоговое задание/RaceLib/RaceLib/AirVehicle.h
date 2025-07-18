@@ -7,6 +7,6 @@ protected:
 
 public:
     AirVehicle(const std::string& name, double speed);
-    virtual ~AirVehicle() override;
+    ~AirVehicle() override;
     double calculateTime(double distance) const override;
 };
