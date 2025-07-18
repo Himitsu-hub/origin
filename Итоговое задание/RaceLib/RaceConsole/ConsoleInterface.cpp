@@ -135,3 +135,4 @@ void ConsoleInterface::showResults(const std::vector<std::pair<std::string, doub
 
     std::cout << "\nГонка завершена!" << std::endl;
 }
+
