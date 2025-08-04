@@ -6,14 +6,12 @@ private:
     int* data_;
     size_t size_;
     size_t capacity_;
-    size_t count_;
 
 public:
     smart_array(size_t initial_capacity)
         : data_(new int[initial_capacity]),
         size_(0),
-        capacity_(initial_capacity),
-        count_(0) {
+        capacity_(initial_capacity) {
     }
 
     ~smart_array() {
@@ -36,7 +34,6 @@ public:
 
         data_[size_] = element;
         size_++;
-        count_++;
     }
 
     int get_element(size_t index) const {
